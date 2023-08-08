@@ -1,0 +1,710 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ */
+package View;
+
+import Controller.BillController;
+import Controller.BillDetailController;
+import Controller.ProductController;
+import Model.Bill;
+import Model.BillDetail;
+import Model.Product;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
+/**
+ *
+ * @author Tuan Nau
+ */
+public class BillView extends javax.swing.JFrame {
+     ResultSet result;
+    
+    private BillController SvDAO = new BillController();
+    private BillDetailController Sv = new BillDetailController();
+    private ArrayList<Bill> list;
+    private ArrayList<Bill> list1;
+    private ArrayList<Bill> list2;
+    private ArrayList<Bill> list3;
+    private ArrayList<BillDetail>listDetail;
+    //private ArrayList<Service_T> listTK;
+    DefaultTableModel model;
+    private int selectedIndex;
+
+    /**
+     * Creates new form BillView
+     */
+    public BillView() {
+        initComponents();
+        this.setLocationRelativeTo(null);
+        //this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        list = SvDAO.getListBill();
+        
+        model = (DefaultTableModel) tblBill.getModel();
+        model.setColumnIdentifiers(new Object[]{
+         "STT", "Amount","Customer","Phone","Email","Andress","Status","Note","PayMethod","Date"
+        });
+        showTable();
+        showResult();
+    }
+    public void showTable() {
+        
+        for (Bill r : list) {
+            model.addRow(new Object[]{
+                r.getId(),r.getAmount(),r.getCustomer(),r.getPhone(),r.getEmail(),r.getAndress(),r.getStatus(),r.getNote(),r.getPayMethod(),r.getCreatedDate()
+            });
+        }
+    }
+     public void showTable1() {
+        
+        for (Bill r : list1) {
+            model.addRow(new Object[]{
+                r.getId(),r.getAmount(),r.getCustomer(),r.getPhone(),r.getEmail(),r.getAndress(),r.getStatus(),r.getNote(),r.getPayMethod(),r.getCreatedDate()
+            });
+        }
+    }
+      public void showTable2() {
+        
+        for (Bill r : list2) {
+            model.addRow(new Object[]{
+                r.getId(),r.getAmount(),r.getCustomer(),r.getPhone(),r.getEmail(),r.getAndress(),r.getStatus(),r.getNote(),r.getPayMethod(),r.getCreatedDate()
+            });
+        }
+        
+    }
+      public void showTable3() {
+        
+        for (Bill r : list3) {
+            model.addRow(new Object[]{
+                r.getId(),r.getAmount(),r.getCustomer(),r.getPhone(),r.getEmail(),r.getAndress(),r.getStatus(),r.getNote(),r.getPayMethod(),r.getCreatedDate()
+            });
+        }
+        
+    }
+     public void showTableDetail() {
+        
+        for (BillDetail r : listDetail) {
+            model.addRow(new Object[]{
+                r.getBrand(),r.getDescription(),r.getName(),r.getSize(),r.getQuantity(),r.getPrice()
+            });
+        }
+    }
+    public void showResultDetail() {
+        model.setRowCount(0);
+        
+        for (BillDetail r : listDetail) {
+            model.addRow(new Object[]{
+                r.getBrand(),r.getDescription(),r.getName(),r.getSize(),r.getQuantity(),r.getPrice()
+            });
+        }
+    }
+     public void showResult() {
+        model.setRowCount(0);
+        
+        for (Bill r : list) {
+            model.addRow(new Object[]{
+                r.getId(),r.getAmount(),r.getCustomer(),r.getPhone(),r.getEmail(),r.getAndress(),r.getStatus(),r.getNote(),r.getPayMethod(),r.getCreatedDate()
+            });
+        }
+    }
+     public void showResult1() {
+        model.setRowCount(0);
+        
+        for (Bill r : list1) {
+            model.addRow(new Object[]{
+                r.getId(),r.getAmount(),r.getCustomer(),r.getPhone(),r.getEmail(),r.getAndress(),r.getStatus(),r.getNote(),r.getPayMethod(),r.getCreatedDate()
+            });
+        }
+    }
+     public void showResult2() {
+        model.setRowCount(0);
+        
+        for (Bill r : list2) {
+            model.addRow(new Object[]{
+                r.getId(),r.getAmount(),r.getCustomer(),r.getPhone(),r.getEmail(),r.getAndress(),r.getStatus(),r.getNote(),r.getPayMethod(),r.getCreatedDate()
+            });
+        }
+    }
+     public void showResult3() {
+        model.setRowCount(0);
+        
+        for (Bill r : list3) {
+            model.addRow(new Object[]{
+                r.getId(),r.getAmount(),r.getCustomer(),r.getPhone(),r.getEmail(),r.getAndress(),r.getStatus(),r.getNote(),r.getPayMethod(),r.getCreatedDate()
+            });
+        }
+    }
+
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblBill = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        txtCustomer = new javax.swing.JTextField();
+        txtPhone = new javax.swing.JTextField();
+        txtEmail = new javax.swing.JTextField();
+        txtStatus = new javax.swing.JTextField();
+        btnSelect = new javax.swing.JButton();
+        btnShow = new javax.swing.JButton();
+        btnSelectConfirm = new javax.swing.JButton();
+        btnSearch = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
+        txtID = new javax.swing.JTextField();
+        btnConfirm = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        btnShowShip = new javax.swing.JButton();
+        btnSelectShip = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        btnShowEnd = new javax.swing.JButton();
+        btnSelectEnd = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        tblBill.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tblBill);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("QUẢN LÝ HÓA ĐƠN");
+
+        jLabel2.setText("Customer");
+
+        jLabel3.setText("Phone");
+
+        jLabel4.setText("Email");
+
+        jLabel5.setText("Status");
+
+        txtCustomer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCustomerActionPerformed(evt);
+            }
+        });
+
+        txtPhone.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPhoneActionPerformed(evt);
+            }
+        });
+
+        btnSelect.setText("Select");
+        btnSelect.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSelectActionPerformed(evt);
+            }
+        });
+
+        btnShow.setText("Show");
+        btnShow.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnShowActionPerformed(evt);
+            }
+        });
+
+        btnSelectConfirm.setText("Select");
+        btnSelectConfirm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSelectConfirmActionPerformed(evt);
+            }
+        });
+
+        btnSearch.setText("Show");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
+
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+
+        btnConfirm.setText("Confirm");
+        btnConfirm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfirmActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setText("ID");
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("Chờ xác nhận");
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel8.setText("Chờ lấy hàng");
+
+        btnShowShip.setText("Show");
+        btnShowShip.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnShowShipActionPerformed(evt);
+            }
+        });
+
+        btnSelectShip.setText("Select");
+        btnSelectShip.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSelectShipActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setText("Đang giao");
+
+        btnShowEnd.setText("Show");
+        btnShowEnd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnShowEndActionPerformed(evt);
+            }
+        });
+
+        btnSelectEnd.setText("Select");
+        btnSelectEnd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSelectEndActionPerformed(evt);
+            }
+        });
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText("Đã giao");
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 910, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6))
+                        .addGap(35, 35, 35)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtCustomer)
+                            .addComponent(txtPhone)
+                            .addComponent(txtEmail)
+                            .addComponent(txtStatus, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
+                            .addComponent(txtID))
+                        .addGap(69, 69, 69)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnShow, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnSelectConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnSelectShip, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnSelectEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel8)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btnShowShip, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btnShowEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(85, 85, 85)
+                                .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(62, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel10))
+                .addGap(1, 1, 1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnShow, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnShowShip, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnShowEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel3)
+                        .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel4)
+                                .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(btnSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnSelectConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnSelectShip, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnSelectEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(12, 12, 12)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5)))
+                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 12, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35))
+        );
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void btnSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectActionPerformed
+        // TODO add your handling code here:
+        Bill select = new Bill();
+        selectedIndex = tblBill.getSelectedRow();
+        select = list.get(selectedIndex);
+        txtID.setText(String.valueOf(select.getId()));
+        txtID.setEditable(false);
+        txtCustomer.setText(select.getCustomer());
+        txtPhone.setText(select.getPhone());
+        txtEmail.setText(select.getEmail());
+        txtStatus.setText(select.getStatus());
+         listDetail=Sv.getDeatail(Integer.parseInt(txtID.getText()));
+         model = (DefaultTableModel) tblBill.getModel();
+        model.setColumnIdentifiers(new Object[]{
+        "Brand","Description","Product","Size","Quatity","Price"
+        });
+        
+        showResultDetail();
+       
+    }//GEN-LAST:event_btnSelectActionPerformed
+
+    private void btnShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowActionPerformed
+        // TODO add your handling code here:
+        list = SvDAO.getListBill();
+        
+        model = (DefaultTableModel) tblBill.getModel();
+        model.setColumnIdentifiers(new Object[]{
+         "STT", "Amount","Customer","Phone","Email","Andress","Status","Note","PayMethod","Date"
+        });
+        showTable();
+        showResult();
+    }//GEN-LAST:event_btnShowActionPerformed
+
+    private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
+        // TODO add your handling code here:
+        Bill r = new Bill();
+        r.setCustomer(txtCustomer.getText());
+        r.setPhone(txtPhone.getText());
+        r.setEmail(txtEmail.getText());
+        if(txtStatus.getText().equals("0")){
+        r.setStatus("1");
+        if (SvDAO.editBill(r, txtID.getText())) {
+            SvDAO.editBill(r, txtID.getText());
+            JOptionPane.showMessageDialog(rootPane, "Xác nhận đơn hàng thành công!");
+            list.clear();
+            list = SvDAO.getListBill();
+            showResult();
+            txtID.setText("");
+                
+                txtStatus.setText("");
+                txtCustomer.setText("");
+                txtPhone.setText("");
+                txtEmail.setText("");
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Cập nhật không thành công!");
+        }
+        list = SvDAO.getListBill();
+        
+        model = (DefaultTableModel) tblBill.getModel();
+        model.setColumnIdentifiers(new Object[]{
+         "STT", "Amount","Customer","Phone","Email","Andress","Status","Note","PayMethod","Date"
+        });
+        showTable();
+        showResult();
+        }else if(txtStatus.getText().equals("1")){
+            r.setStatus("2");
+        if (SvDAO.editBill(r, txtID.getText())) {
+            SvDAO.editBill(r, txtID.getText());
+            JOptionPane.showMessageDialog(rootPane, "Đơn hàng đã giao cho đơn vị vận chuyển!");
+            list1.clear();
+            list1 = SvDAO.getListBillConfirm();
+            showResult();
+            txtID.setText("");
+                
+                txtStatus.setText("");
+                txtCustomer.setText("");
+                txtPhone.setText("");
+                txtEmail.setText("");
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Cập nhật không thành công!");
+        }
+        list1 = SvDAO.getListBillConfirm();
+        
+        model = (DefaultTableModel) tblBill.getModel();
+        model.setColumnIdentifiers(new Object[]{
+         "STT", "Amount","Customer","Phone","Email","Andress","Status","Note","PayMethod","Date"
+        });
+        showTable1();
+        showResult1();
+            
+        }else{
+            r.setStatus("3");
+        if (SvDAO.editBill(r, txtID.getText())) {
+            SvDAO.editBill(r, txtID.getText());
+            JOptionPane.showMessageDialog(rootPane, "Đơn hàng hoàn thành!");
+            list2.clear();
+            list2 = SvDAO.getListBillConfirm();
+            showResult();
+            txtID.setText("");
+                
+                txtStatus.setText("");
+                txtCustomer.setText("");
+                txtPhone.setText("");
+                txtEmail.setText("");
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Cập nhật không thành công!");
+        }
+        list2 = SvDAO.getListBillConfirm();
+        
+        model = (DefaultTableModel) tblBill.getModel();
+        model.setColumnIdentifiers(new Object[]{
+         "STT", "Amount","Customer","Phone","Email","Andress","Status","Note","PayMethod","Date"
+        });
+        showTable2();
+        showResult2();
+        }
+    }//GEN-LAST:event_btnConfirmActionPerformed
+
+    private void txtCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCustomerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCustomerActionPerformed
+
+    private void txtPhoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPhoneActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPhoneActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        int conf = JOptionPane.showConfirmDialog(null,
+                "Bạn có chắc chắn muốn về trang chủ?",
+                "Trang Chủ",
+                JOptionPane.YES_OPTION);
+        if (conf == 0) {
+            new HomeView().setVisible(true);
+            this.dispose();
+        }
+    }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        // TODO add your handling code here:
+        list1 = SvDAO.getListBillConfirm();
+        
+        model = (DefaultTableModel) tblBill.getModel();
+        model.setColumnIdentifiers(new Object[]{
+         "STT", "Amount","Customer","Phone","Email","Andress","Status","Note","PayMethod","Date"
+        });
+        showTable1();
+        showResult1();
+        
+    }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void btnSelectConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectConfirmActionPerformed
+        // TODO add your handling code here:
+        Bill select = new Bill();
+        selectedIndex = tblBill.getSelectedRow();
+        select = list1.get(selectedIndex);
+        txtID.setText(String.valueOf(select.getId()));
+        txtID.setEditable(false);
+        txtCustomer.setText(select.getCustomer());
+        txtPhone.setText(select.getPhone());
+        txtEmail.setText(select.getEmail());
+        txtStatus.setText(select.getStatus());
+         listDetail=Sv.getDeatail(Integer.parseInt(txtID.getText()));
+         model = (DefaultTableModel) tblBill.getModel();
+        model.setColumnIdentifiers(new Object[]{
+        "Brand","Description","Product","Size","Quatity","Price"
+        });
+        
+        showResultDetail();
+    }//GEN-LAST:event_btnSelectConfirmActionPerformed
+
+    private void btnShowShipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowShipActionPerformed
+        // TODO add your handling code here:
+        list2 = SvDAO.getListBillShip();
+        
+        model = (DefaultTableModel) tblBill.getModel();
+        model.setColumnIdentifiers(new Object[]{
+         "STT", "Amount","Customer","Phone","Email","Andress","Status","Note","PayMethod","Date"
+        });
+        showTable2();
+        showResult2();
+    }//GEN-LAST:event_btnShowShipActionPerformed
+
+    private void btnSelectShipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectShipActionPerformed
+        // TODO add your handling code here:
+        Bill select = new Bill();
+        selectedIndex = tblBill.getSelectedRow();
+        select = list2.get(selectedIndex);
+        txtID.setText(String.valueOf(select.getId()));
+        txtID.setEditable(false);
+        txtCustomer.setText(select.getCustomer());
+        txtPhone.setText(select.getPhone());
+        txtEmail.setText(select.getEmail());
+        txtStatus.setText(select.getStatus());
+         listDetail=Sv.getDeatail(Integer.parseInt(txtID.getText()));
+         model = (DefaultTableModel) tblBill.getModel();
+        model.setColumnIdentifiers(new Object[]{
+        "Brand","Description","Product","Size","Quatity","Price"
+        });
+        
+        showResultDetail();
+    }//GEN-LAST:event_btnSelectShipActionPerformed
+
+    private void btnShowEndActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowEndActionPerformed
+        // TODO add your handling code here:
+         list3 = SvDAO.getListBillSuccess();
+        
+        model = (DefaultTableModel) tblBill.getModel();
+        model.setColumnIdentifiers(new Object[]{
+         "STT", "Amount","Customer","Phone","Email","Andress","Status","Note","PayMethod","Date"
+        });
+        showTable3();
+        showResult3();
+    }//GEN-LAST:event_btnShowEndActionPerformed
+
+    private void btnSelectEndActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectEndActionPerformed
+        // TODO add your handling code here:
+        Bill select = new Bill();
+        selectedIndex = tblBill.getSelectedRow();
+        select = list3.get(selectedIndex);
+        txtID.setText(String.valueOf(select.getId()));
+        txtID.setEditable(false);
+        txtCustomer.setText(select.getCustomer());
+        txtPhone.setText(select.getPhone());
+        txtEmail.setText(select.getEmail());
+        txtStatus.setText(select.getStatus());
+         listDetail=Sv.getDeatail(Integer.parseInt(txtID.getText()));
+         model = (DefaultTableModel) tblBill.getModel();
+        model.setColumnIdentifiers(new Object[]{
+        "Brand","Description","Product","Size","Quatity","Price"
+        });
+        
+        showResultDetail();
+    }//GEN-LAST:event_btnSelectEndActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(BillView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(BillView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(BillView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(BillView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new BillView().setVisible(true);
+            }
+        });
+    }
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnConfirm;
+    private javax.swing.JButton btnSearch;
+    private javax.swing.JButton btnSelect;
+    private javax.swing.JButton btnSelectConfirm;
+    private javax.swing.JButton btnSelectEnd;
+    private javax.swing.JButton btnSelectShip;
+    private javax.swing.JButton btnShow;
+    private javax.swing.JButton btnShowEnd;
+    private javax.swing.JButton btnShowShip;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tblBill;
+    private javax.swing.JTextField txtCustomer;
+    private javax.swing.JTextField txtEmail;
+    private javax.swing.JTextField txtID;
+    private javax.swing.JTextField txtPhone;
+    private javax.swing.JTextField txtStatus;
+    // End of variables declaration//GEN-END:variables
+}
